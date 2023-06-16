@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'djan-test'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_036477D1CD234F04B51028132A79E4FC }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_576FB8048B8149C0B9E3895A005C55DC }}
