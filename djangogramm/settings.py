@@ -28,7 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+if DEBUG:
+    CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = ['http://djangramm-123.azurewebsites.net', 'https://djangramm-123.azurewebsites.net']
 # Application definition
 
 INSTALLED_APPS = [
