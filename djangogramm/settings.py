@@ -28,11 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-if DEBUG:
-    CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
-if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = ['http://djangramm-123.azurewebsites.net', 'https://djangramm-123.azurewebsites.net']
-# Application definition
+CSRF_TRUSTED_ORIGINS = ['https://*.djangramm-123.azurewebsites.net', 'http://*.djangramm-123.azurewebsites.net/']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'app',
     'taggit',
 ]
