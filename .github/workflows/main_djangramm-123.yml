@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'djangramm-123'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_34173E2F87B64293B019C9A41B545FBB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9E0E3FAACE2544EE978A87A7DF6B2894 }}
