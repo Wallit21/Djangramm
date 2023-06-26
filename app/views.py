@@ -50,7 +50,7 @@ def activate_email(request, user):
     subject = 'Email confirmation'
     message = render_to_string("email.html", {
         'user': user,
-        'domain': get_current_site,
+        'domain': get_current_site(request),
         'uid': urlsafe_base64_encode(force_bytes(user.user_id)),
         'token': account_activation_token.make_token(user),
         'protocol': 'https' if request.is_secure() else 'http'
