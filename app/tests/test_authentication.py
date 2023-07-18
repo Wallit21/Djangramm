@@ -21,7 +21,7 @@ class TestAuth(TestCase):
             'password': 'strongpassword'
         }
         self.user_not_exist = {
-            'email': 'not.exist@gmail.com',
+            'email': 'not.notexist@gmail.com',
             'password': 'strongpassword'
         }
         self.login_wrong_password = {
@@ -46,13 +46,12 @@ class TestAuth(TestCase):
 
     def test_register_POST(self):
         response = self.client.post(self.register_url, self.user)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_register_POST_used_email(self):
-        self.client.post(self.register_url, self.user)
-        response = self.client.post(self.register_url, self.user)
+        response = self.client.post(self.register_url, self.user, follow=True)
         self.assertEqual(response.status_code, 200)
-        assert b'This email is already used.' in response.content
+        self.assertContains(response, 'This email is already used.')
 
     def test_login_GET(self):
         response = self.client.get(self.login_url)
@@ -60,17 +59,17 @@ class TestAuth(TestCase):
         self.assertTemplateUsed(response, 'login.html')
 
     def test_login_POST_logged_in_correctly(self):
-        self.client.post(self.register_url, self.user)
         response = self.client.post(self.login_url, self.user_login_correctly)
         self.assertEqual(response.status_code, 302)
 
     def test_login_POST_user_not_exist(self):
-        response = self.client.post(self.login_url, self.user_not_exist)
+        response = self.client.post(self.login_url, self.user_not_exist, follow=True)
         self.assertEqual(response.status_code, 200)
         assert b'User does not exist.' in response.content
 
+
     def test_login_POST_wrong_password(self):
-        response = self.client.post(self.login_url, self.login_wrong_password)
+        response = self.client.post(self.login_url, self.login_wrong_password, follow=True)
         self.assertEqual(response.status_code, 200)
         assert b'Wrong email or password.' in response.content
 
