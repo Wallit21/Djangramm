@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'djang13'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CC43DFAA49254393A831CB6EB4A8B15E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF489A68ABA54D3A8AA35E281CEEE833 }}
