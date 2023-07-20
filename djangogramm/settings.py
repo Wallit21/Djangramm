@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://*.djangramm-123.azurewebsites.net', 'http://*.djangramm-123.azurewebsites.net/']
+CSRF_TRUSTED_ORIGINS = ['https://*.djang13.azurewebsites.net', 'http://*.djang13.azurewebsites.net/']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
